@@ -23,7 +23,7 @@ public class BaseClass {
 	public static ThreadLocal<RemoteWebDriver> driver = new ThreadLocal<>();
 
 	//loadConfig method is to load the configuration
-	@BeforeSuite(groups = { "Smoke", "Sanity", "Regression" })
+	@BeforeSuite(groups = { "Smoke", "Sanity", "Regression", "Test"})
 	public void loadConfig() {
 		ExtentManager.setExtent();
 		DOMConfigurator.configure("log4j.xml");
@@ -72,7 +72,7 @@ public class BaseClass {
 		getDriver().get(prop.getProperty("url"));
 	}
 
-	@AfterSuite(groups = { "Smoke", "Regression","Sanity" })
+	@AfterSuite(groups = { "Smoke", "Regression","Sanity","Test" })
 	public void afterSuite() {
 		ExtentManager.endReport();
 	}

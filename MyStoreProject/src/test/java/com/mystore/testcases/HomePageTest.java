@@ -22,17 +22,17 @@ public class HomePageTest extends BaseClass {
 	private HomePage homePage;
 
 	@Parameters("browser")
-	@BeforeMethod(groups = {"Smoke","Sanity","Regression"})
+	@BeforeMethod(groups = {"Smoke","Sanity","Regression","Test"})
 	public void setup(String browser) {
 		launchApp(browser); 
 	}
 	
-	@AfterMethod(groups = {"Smoke","Sanity","Regression"})
+	@AfterMethod(groups = {"Smoke","Sanity","Regression","Test"})
 	public void tearDown() {
 		getDriver().quit();
 	}
 	
-	@Test(groups = "Smoke",dataProvider = "credentials", dataProviderClass = DataProviders.class)
+	@Test(groups = {"Smoke","Test"},dataProvider = "credentials", dataProviderClass = DataProviders.class)
 	public void wishListTest(String uname, String pswd) throws Throwable {
 		Log.startTestCase("wishListTest");
 		indexPage= new IndexPage();
@@ -43,7 +43,7 @@ public class HomePageTest extends BaseClass {
 		Log.endTestCase("wishListTest");
 	}
 	
-	@Test(groups = "Smoke",dataProvider = "credentials", dataProviderClass = DataProviders.class)
+	@Test(groups = {"Smoke","Test"},dataProvider = "credentials", dataProviderClass = DataProviders.class)
 	public void orderHistoryandDetailsTest(String uname, String pswd) throws Throwable {
 		Log.startTestCase("orderHistoryandDetailsTest");
 		indexPage= new IndexPage();
